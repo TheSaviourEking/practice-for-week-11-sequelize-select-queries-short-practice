@@ -55,6 +55,11 @@ app.get('/puppies/name/:name', async (req, res, next) => {
     let puppyByName;
 
     // Your code here
+    puppyByName = await Puppy.findOne({
+        where: {
+            name: req.params.name
+        }
+    });
 
     res.json(puppyByName);
 })
