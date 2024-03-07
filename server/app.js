@@ -10,6 +10,7 @@ const { Puppy } = require('./db/models');
 
 // Import Op to perform comparison operations in WHERE clauses - DO NOT MODIFY
 const { Op } = require("sequelize");
+// const { all } = require('sequelize/types/lib/operators');
 
 // Express using json - DO NOT MODIFY
 app.use(express.json());
@@ -22,6 +23,8 @@ app.get('/puppies', async (req, res, next) => {
     let allPuppies;
 
     // Your code here
+    allPuppies = await Puppy.findAll();
+    console.log(Puppy, 'hhh')
 
     res.json(allPuppies);
 });
