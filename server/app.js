@@ -96,6 +96,7 @@ app.get('/puppies/:id', async (req, res, next) => {
     let puppyById;
 
     // Your code here
+    puppyById = await Puppy.findByPk(req.params.id)
 
     res.json(puppyById);
 });
