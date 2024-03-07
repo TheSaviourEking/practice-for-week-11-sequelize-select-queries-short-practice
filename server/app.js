@@ -72,6 +72,16 @@ app.get('/puppies/shepherds', async (req, res, next) => {
     let shepherds;
 
     // Your code here
+    shepherds = await Puppy.findAll({
+        order: [
+            ['name', 'DESC']
+        ],
+        where: {
+            breed: {
+                [Op.like]: '%Shepherd'
+            }
+        }
+    })
 
     res.json(shepherds);
 })
